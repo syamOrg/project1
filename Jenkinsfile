@@ -1,4 +1,4 @@
-properties([[$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/syamOrg/project1.git'], pipelineTriggers([githubPush()])])
+properties([parameters([choice(choices: ['Active', 'Reactive', 'InActive'], description: 'activity', name: 'choice'), booleanParam(defaultValue: true, description: 'Boolean Parameter', name: 'Boolean'), string(defaultValue: 'Syam', description: '', name: 'String ')]), pipelineTriggers([githubPush()])])
 pipeline {
     agent any
         stages {
