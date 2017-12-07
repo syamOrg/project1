@@ -12,7 +12,7 @@ pipeline {
                 echo "Hello ${params.Branch}"
                 echo "Hello ${params.Rebuild_Database}"
                 echo "Hello ${params.Deploy}"
-                echo "Hello ${Environment}" 
+                echo "Hello ${params.Environment}" 
             }
         }
     }
