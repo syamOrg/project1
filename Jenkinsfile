@@ -1,20 +1,19 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'PERSON', defaultValue: 'syam', description: 'Who should I say hello to?')
+        string(name: 'Branch', defaultValue: 'default', description: 'Select which branch you want to select')
+        booleanParam(name: 'Rebuild_Database', defaultValue: true, description: 'Should we rebuild the database')
+         booleanParam(name: 'Deploy', defaultValue: true, description: 'Should we Deploy this application')
+        choice(name: 'Environment',choices: ['Integration', 'Active'], description: 'use for postgress.sh and code deployment')
     }
     stages {
         stage('Example') {
             steps {
-                echo "Hello ${params.PERSON}"
+                echo "Hello ${params.Branch}"
+                echo "Hello ${params.Rebuild_Database}"
+                echo "Hello ${params.Deploy}"
+                echo "Hello ${params.Environment}" 
             }
         }
     }
-    
-  parameters { 
-      booleanParam(name: 'DEBUG_BUILD', defaultValue: true, description: '')
-  }
-  parameters { 
-        choice(choices: ['Active', 'Inactive'], description: '', name: 'Choice')
-  }
-}pa
+}
